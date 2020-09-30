@@ -1,9 +1,12 @@
 ﻿Public Class Perfomance
-    Function GetCounterValue(pc As PerformanceCounter, categoryName As String, counterName As String, instanceName As String)
+    Public Shared Function GetCounterValue(pc As PerformanceCounter, categoryName As String, counterName As String, instanceName As String)
+        'Implements thread http://www.macoratti.net/vbn_thd1.htm
+        Dim percentProcess As Int16
         pc.CategoryName = categoryName
         pc.CounterName = counterName
         pc.InstanceName = instanceName
-        Return pc.NextValue()
+        percentProcess = pc.NextValue()
+        Return percentProcess
     End Function
 
 End Class

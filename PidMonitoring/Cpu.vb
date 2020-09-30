@@ -1,9 +1,11 @@
 ﻿Public Class Cpu
-    Function GetProcessorData()
-        Dim cpuCounter As PerformanceCounter
-        Dim perfomance As Perfomance
-        Dim d = perfomance.GetCounterValue(cpuCounter, "Processador", "Processador Time", "Total")
+    Public Shared Function GetProcessorData()
+        Dim perfomanceValue As Perfomance
+        Dim d As Int16
+
+        d = perfomanceValue.GetCounterValue(New PerformanceCounter, "Processor", "% Processor Time", "_Total")
         Dim result = d + "%" + d.ToString("F") + "%"
+        Return result
     End Function
 
 
